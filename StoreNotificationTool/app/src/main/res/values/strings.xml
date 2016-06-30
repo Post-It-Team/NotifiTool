@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Notification Tool</string>
+    <string name="tool_description">Ứng dụng này sẽ thu thập các thông báo của bạn để phục vụ cho việc
+    chặn các <b>spam notification</b>. \n\nNhấn nút <b>Cho phép</b> sau đó tích chọn
+        <b>Notification Tool</b> để cho phép ứng dụng này thu thập các thông báo của bạn  </string>
+</resources>

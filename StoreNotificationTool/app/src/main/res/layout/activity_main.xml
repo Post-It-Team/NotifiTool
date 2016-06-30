@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.postit.tool.notification.MainActivity">
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tool_description" />
+
+    <ImageView
+        android:id="@+id/im_guide_setting"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="210dp"
+        android:src="@drawable/notifi_config"/>
+
+    <Button
+        android:layout_below="@+id/im_guide_setting"
+        android:layout_marginTop="24dp"
+        android:id="@+id/start"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cho Phép"/>
+</RelativeLayout>
