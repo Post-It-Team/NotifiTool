@@ -1,4 +1,4 @@
-package com.postit.tool.notification;
+package com.postit.notification;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.firebase.client.Firebase;
+import com.postit.notification.notification.R;
 
 public class MainActivity extends AppCompatActivity {
     Button start;

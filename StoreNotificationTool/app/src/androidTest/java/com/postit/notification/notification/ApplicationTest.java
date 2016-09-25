@@ -1,4 +1,4 @@
-package com.postit.tool.notification;
+package com.postit.notification.notification;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

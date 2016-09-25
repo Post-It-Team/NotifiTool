@@ -1,4 +1,4 @@
-package com.postit.tool.notification;
+package com.postit.notification.notification;
 
 import org.junit.Test;
 

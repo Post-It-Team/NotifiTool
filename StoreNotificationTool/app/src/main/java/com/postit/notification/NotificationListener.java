@@ -1,11 +1,8 @@
-package com.postit.tool.notification;
+package com.postit.notification;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.drawable.Icon;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.UserHandle;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
@@ -19,37 +16,31 @@ import com.firebase.client.Firebase;
 public class NotificationListener extends NotificationListenerService {
     Context context;
     public static final String TAG = "NotificationListener";
+    Firebase root, notiRef;
+
 
     @Override
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
+        root = new Firebase(FireBaseNotification.ROOT);
+        notiRef = root.child(FireBaseNotification.NOTIFICATION_CHILD);
 
     }
     @Override
     public void onNotificationPosted(StatusBarNotification sbn) {
-        SpamNotification notification = new SpamNotification(sbn);
-        String pack = notification.getPackageName();
-        pack = pack.replace(".","_");
-        Firebase root = new Firebase(FireBaseNotification.ROOT);
-        String deviceInfo = getDeviceName() + " " + getSDKVersion();
-        Firebase fbNew = root.child(deviceInfo).child(pack);
-        fbNew.push().setValue(notification);
+        NotiStack notiStack = new NotiStack(sbn);
+
+        String sbnId = String.valueOf(sbn.getId());
+        notiRef.child(sbnId).setValue(notiStack);
         Log.i(TAG,"have a new Notification");
     }
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
-
-    }
-
-    public String getDeviceName(){
-        return Build.MODEL;
-    }
-
-    public String getSDKVersion(){
-        String sdkVersion = Build.VERSION.RELEASE;
-        return sdkVersion.replace(".","_");
+        int idRemoved = sbn.getId();
+        notiRef.child(String.valueOf(idRemoved)).setValue(null);
+        Log.i(TAG,"Remove a notification");
     }
 
 }
